@@ -53,8 +53,8 @@ function App() {
               onClick={() => setView('home')}
             >
               <Aperture className='w-6 h-6' />
-              <h1 className='text-sm font-bold tracking-[0.2em] text-black hidden sm:block  opacity-90 group-hover:opacity-100 transition-opacity'>
-                Jeprtin
+              <h1 className='text-sm font-bold tracking-[0.1em] text-black hidden sm:block  opacity-90 group-hover:opacity-100 transition-opacity'>
+                Jepretin.
               </h1>
             </div>
 
