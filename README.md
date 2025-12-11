@@ -13,7 +13,6 @@ Designed to capture moments with elegance. Jepretin delivers a high-quality, sea
 - **Advanced Editor:**
   - **Filters:** Aesthetic presets (B&W, Vintage, Sepia).
   - **Frames:** Curated minimal layouts (Polaroid, Film Strip).
-  - **Tools:** Stickers, drawing, and multilingual text (ENG/KOR/CN).
 - **Privacy First:** All image processing is handled client-side via the Canvas API. No photos are uploaded to any server.
 
 ### Tech Stack

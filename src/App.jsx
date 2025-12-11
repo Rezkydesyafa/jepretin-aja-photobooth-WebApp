@@ -163,12 +163,6 @@ function App() {
           >
             {/* Header for Camera View */}
             <div className='absolute top-0 left-0 right-0 p-6 flex justify-between items-center z-50'>
-              <div className='flex items-center space-x-2 opacity-50'>
-                <Sparkles className='w-4 h-4 text-black' />
-                <span className='text-xs font-bold tracking-[0.2em] text-black uppercase'>
-                  Capture Mode
-                </span>
-              </div>
               <button
                 onClick={() => setView('home')}
                 className='p-3 bg-black/5 hover:bg-black/10 rounded-full text-black transition-all border border-black/5 group'
