@@ -72,7 +72,7 @@ const Camera = ({ onCapture }) => {
   };
 
   const triggerNextCapture = (photoIndex) => {
-    if (photoIndex >= 4) {
+    if (photoIndex >= 3) {
       setIsSessionActive(false);
       setCountdown(null);
       return;
@@ -109,7 +109,7 @@ const Camera = ({ onCapture }) => {
     setPhotos((prev) => {
       const newPhotos = [...prev, imageData];
       const nextIndex = newPhotos.length;
-      if (isSessionActive && nextIndex < 4) {
+      if (isSessionActive && nextIndex < 3) {
         triggerNextCapture(nextIndex);
       } else {
         setIsSessionActive(false);
@@ -154,7 +154,7 @@ const Camera = ({ onCapture }) => {
           </div>
 
           <div className='text-sm font-medium text-gray-400 tracking-wider'>
-            {photos.length} <span className='text-gray-300'>/</span> 4
+            {photos.length} <span className='text-gray-300'>/</span> 3
           </div>
         </div>
 
@@ -223,7 +223,7 @@ const Camera = ({ onCapture }) => {
           <div className='w-full lg:w-24 flex lg:flex-col justify-between gap-4'>
             {/* Thumbnails */}
             <div className='flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible no-scrollbar h-full justify-start lg:justify-center'>
-              {[0, 1, 2, 3].map((idx) => (
+              {[0, 1, 2].map((idx) => (
                 <div
                   key={idx}
                   className={`
@@ -274,7 +274,7 @@ const Camera = ({ onCapture }) => {
 
           {/* Main Controls */}
           <div className='flex items-center gap-6'>
-            {!isSessionActive && photos.length < 4 && (
+            {!isSessionActive && photos.length < 3 && (
               <button
                 onClick={startSession}
                 className='group relative px-12 py-5 bg-black text-white rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl hover:shadow-2xl overflow-hidden'
@@ -293,7 +293,7 @@ const Camera = ({ onCapture }) => {
               </div>
             )}
 
-            {(photos.length === 4 ||
+            {(photos.length === 3 ||
               (photos.length > 0 && !isSessionActive)) && (
               <div className='flex gap-4'>
                 <button

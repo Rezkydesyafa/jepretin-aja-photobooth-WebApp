@@ -6,307 +6,207 @@ import React from 'react';
 
 export const FRAMES = [
   {
-    id: 'thin-black',
-    name: 'Thin Black',
-    tags: ['minimal', 'classic'],
+    id: 'retro-groovy',
+    name: 'Retro Groovy',
+    tags: ['retro', 'warm', '70s'],
     containerStyle: {
-      backgroundColor: '#FFFFFF',
-      border: '1px solid #000000',
-      padding: '20px',
-    },
-    overlay: null, // No overlay needed, just container style
-  },
-  {
-    id: 'matte-black',
-    name: 'Matte Black',
-    tags: ['bold', 'dark'],
-    containerStyle: {
-      backgroundColor: '#111111',
+      backgroundColor: '#FEF9E7',
+      backgroundImage: `
+        repeating-radial-gradient(
+          circle at 0 0, 
+          transparent 0, 
+          #FEF9E7 10px
+        ),
+        repeating-linear-gradient(
+          45deg,
+          #FFB7B2,
+          #FFB7B2 10px,
+          #FFDAC1 10px,
+          #FFDAC1 20px
+        )
+      `,
       padding: '24px',
-    },
-    textColor: '#FFFFFF', // Invert text for dark frame
-    overlay: null,
-  },
-  {
-    id: 'clean-white',
-    name: 'Clean White',
-    tags: ['minimal', 'modern'],
-    containerStyle: {
-      backgroundColor: '#FFFFFF',
-      boxShadow: '0 10px 40px rgba(0,0,0,0.1)',
-      padding: '20px',
-    },
-    overlay: null,
-  },
-  {
-    id: 'marble',
-    name: 'White Marble',
-    tags: ['texture', 'elegant'],
-    containerStyle: {
-      backgroundColor: '#FAFAFA',
-      backgroundImage:
-        'url("https://www.transparenttextures.com/patterns/white-diamond.png")', // Subtle texture fallback
-      // In a real app we'd use a local seamless SVG pattern
-      padding: '24px',
-    },
-    overlay: null,
-  },
-  {
-    id: 'silver-gradient',
-    name: 'Silver Mist',
-    tags: ['gradient', 'soft'],
-    containerStyle: {
-      background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
-      padding: '20px',
-    },
-    overlay: null,
-  },
-  {
-    id: 'geometric',
-    name: 'Geometric',
-    tags: ['modern', 'shapes'],
-    containerStyle: {
-      backgroundColor: '#FFFFFF',
-      padding: '20px',
-    },
-    // SVG Overlay for corners
-    renderOverlay: () => (
-      <div className='absolute inset-0 pointer-events-none'>
-        <svg width='100%' height='100%' className='absolute inset-0'>
-          <path d='M0 0 L50 0 L0 50 Z' fill='black' />
-          <path d='M100% 100% L100% 100% L100% 100%' fill='black' />{' '}
-          {/* Placeholder logic */}
-          <polygon points='0,0 60,0 0,60' fill='#111' />
-          <polygon
-            points='100%,100% 100%,calc(100%-60px) calc(100%-60px),100%'
-            fill='#111'
-            transform='rotate(180, 100%, 100%)'
-          />
-        </svg>
-      </div>
-    ),
-  },
-  {
-    id: 'polaroid',
-    name: 'Polaroid Style',
-    tags: ['retro', 'white'],
-    containerStyle: {
-      backgroundColor: '#FFFFFF',
-      padding: '16px 16px 60px 16px', // Extra bottom padding
-      boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
-    },
-    overlay: null,
-  },
-  {
-    id: 'double-line',
-    name: 'Double Line',
-    tags: ['classic', 'formal'],
-    containerStyle: {
-      backgroundColor: '#FFFFFF',
-      padding: '16px',
-      border: '4px double #111111',
-    },
-    overlay: null,
-  },
-  {
-    id: 'dotted',
-    name: 'Minimal Dot',
-    tags: ['cute', 'minimal'],
-    containerStyle: {
-      backgroundColor: '#FFFFFF',
-      padding: '20px',
-      outline: '2px dotted #999',
-      outlineOffset: '-10px',
-    },
-    overlay: null,
-  },
-  {
-    id: 'film-strip',
-    name: 'Film Strip',
-    tags: ['retro', 'cinema'],
-    containerStyle: {
-      backgroundColor: '#111111',
-      padding: '10px 30px',
-      borderLeft: '4px dashed white',
-      borderRight: '4px dashed white',
-    },
-    textColor: '#FFFFFF',
-    overlay: null,
-  },
-  {
-    id: 'metallic',
-    name: 'Brushed Steel',
-    tags: ['industrial', 'cool'],
-    containerStyle: {
-      background:
-        'repeating-linear-gradient(45deg, #e0e0e0, #e0e0e0 1px, #f5f5f5 1px, #f5f5f5 4px)',
-      padding: '24px',
-      border: '1px solid #ccc',
-    },
-    overlay: null,
-  },
-  {
-    id: 'brackets',
-    name: 'Corner Brackets',
-    tags: ['minimal', 'tech'],
-    containerStyle: {
-      backgroundColor: '#FFFFFF',
-      padding: '24px',
-    },
-    renderOverlay: () => (
-      <div className='absolute inset-4 pointer-events-none border-t-2 border-b-2 border-black/80 h-[95%]'>
-        {/* Just styled borders via div for simplicity */}
-        <div className='absolute top-0 left-0 w-4 h-full border-l-2 border-black/80'></div>
-        <div className='absolute top-0 right-0 w-4 h-full border-r-2 border-black/80'></div>
-      </div>
-    ),
-  },
-  // --- NEW PASTEL & CUTE FRAMES ---
-  {
-    id: 'pastel-pink',
-    name: 'Soft Pink',
-    tags: ['pastel', 'cute'],
-    containerStyle: {
-      backgroundColor: '#FFECF1',
-      padding: '24px',
-      border: '4px solid white',
-      boxShadow: '0 0 0 1px #FFB7C5',
-    },
-    textColor: '#D46A85',
-    overlay: null,
-  },
-  {
-    id: 'pastel-mint',
-    name: 'Mint Fresh',
-    tags: ['pastel', 'fresh'],
-    containerStyle: {
-      backgroundColor: '#E6FFF9',
-      padding: '24px',
-      border: '4px solid white',
-      boxShadow: '0 0 0 1px #A3E4D7',
-    },
-    textColor: '#48C9B0',
-    overlay: null,
-  },
-  {
-    id: 'pastel-lavender',
-    name: 'Lavender',
-    tags: ['pastel', 'dreamy'],
-    containerStyle: {
-      backgroundColor: '#F3E5F5',
-      padding: '24px',
-      border: '2px solid white',
-      outline: '2px dashed #CE93D8',
-      outlineOffset: '-6px',
-    },
-    textColor: '#8E24AA',
-    overlay: null,
-  },
-  {
-    id: 'cute-grid',
-    name: 'School Grid',
-    tags: ['cute', 'pattern'],
-    containerStyle: {
-      backgroundColor: '#FFF',
-      backgroundImage:
-        'linear-gradient(#E1F5FE 1px, transparent 1px), linear-gradient(90deg, #E1F5FE 1px, transparent 1px)',
-      backgroundSize: '20px 20px',
-      padding: '24px',
-    },
-    textColor: '#0288D1',
-    overlay: null,
-  },
-  {
-    id: 'polka-dots',
-    name: 'Polka Party',
-    tags: ['cute', 'pattern'],
-    containerStyle: {
-      backgroundColor: '#FFF8E1',
-      backgroundImage: 'radial-gradient(#FFD54F 20%, transparent 20%)',
-      backgroundSize: '16px 16px',
-      padding: '24px',
-    },
-    textColor: '#FF6F00',
-    overlay: null,
-  },
-  {
-    id: 'checkerboard',
-    name: 'Checkmate',
-    tags: ['retro', 'pattern'],
-    containerStyle: {
-      backgroundColor: '#FFE0E0',
-      backgroundImage:
-        'conic-gradient(#FFCDD2 90deg, transparent 90deg 180deg, #FFCDD2 180deg 270deg, transparent 270deg)',
-      backgroundSize: '32px 32px',
-      padding: '24px',
-    },
-    textColor: '#D32F2F',
-    overlay: null,
-  },
-  {
-    id: 'cloud-dream',
-    name: 'Cloud 9',
-    tags: ['cute', 'gradient'],
-    containerStyle: {
-      background: 'linear-gradient(180deg, #E3F2FD 0%, #BBDEFB 100%)',
-      padding: '24px',
+      border: '8px solid #E2F0CB',
       borderRadius: '16px',
     },
-    textColor: '#1565C0',
+    textColor: '#FF9AA2',
     overlay: null,
   },
-  // --- COUPLE & CHARACTER FRAMES ---
   {
-    id: 'love-hearts',
-    name: 'Love Hearts',
-    tags: ['couple', 'love'],
+    id: 'pop-art',
+    name: 'Pop Art',
+    tags: ['bold', 'colorful', 'comic'],
     containerStyle: {
-      backgroundColor: '#FFEBEE',
-      backgroundImage: 'radial-gradient(#FFCDD2 2px, transparent 2px)',
+      backgroundColor: '#FFE135',
+      backgroundImage: 'radial-gradient(#000 20%, transparent 20%)',
+      backgroundSize: '10px 10px',
+      padding: '24px',
+      border: '6px solid #000',
+      boxShadow: '10px 10px 0px #FF4081',
+    },
+    textColor: '#000000',
+    overlay: null,
+  },
+  {
+    id: 'coquette',
+    name: 'Coquette',
+    tags: ['cute', 'romantic', 'bows'],
+    containerStyle: {
+      backgroundColor: '#FFF0F5',
+      border: '1px solid #FFC1CC',
+      padding: '24px',
+      boxShadow: 'inset 0 0 0 4px #FFF, inset 0 0 0 6px #FFC1CC',
+    },
+    textColor: '#DB7093',
+    renderOverlay: () => (
+      <div className='absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden'>
+        {/* Decorative corner bows could be SVG here, keeping it simple for now */}
+        <div className='absolute top-2 left-2 text-[#FFC1CC] text-2xl'>🎀</div>
+        <div className='absolute top-2 right-2 text-[#FFC1CC] text-2xl'>🎀</div>
+        <div className='absolute bottom-2 left-2 text-[#FFC1CC] text-2xl'>
+          🎀
+        </div>
+        <div className='absolute bottom-2 right-2 text-[#FFC1CC] text-2xl'>
+          🎀
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 'y2k',
+    name: 'Y2K Cyber',
+    tags: ['futuristic', '2000s', 'chrome'],
+    containerStyle: {
+      backgroundColor: '#000',
+      backgroundImage: `
+        linear-gradient(90deg, #00FF00 1px, transparent 1px),
+        linear-gradient(180deg, #00FF00 1px, transparent 1px)
+      `,
+      backgroundSize: '40px 40px',
+      padding: '24px',
+      border: '2px solid #00FF00',
+      boxShadow: '0 0 10px #00FF00',
+    },
+    textColor: '#00FF00',
+    overlay: null,
+  },
+  {
+    id: 'polco',
+    name: 'Polco Deco',
+    tags: ['cute', 'kpop', 'sticker'],
+    containerStyle: {
+      backgroundColor: '#F8F9FA',
+      padding: '30px 20px 60px 20px', // More bottom padding like polaroid
+      border: '1px solid #DDD',
+      boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+      gap: '12px', // Tighter framing
+    },
+    textColor: '#555',
+    overlay: null,
+  },
+  {
+    id: 'analog-film',
+    name: 'Analog Film',
+    tags: ['vintage', 'cinema', 'grain'],
+    containerStyle: {
+      backgroundColor: '#1A1A1A',
+      padding: '16px 32px',
+      borderLeft: '12px dashed rgba(255,255,255,0.2)',
+      borderRight: '12px dashed rgba(255,255,255,0.2)',
+    },
+    textColor: '#FFA500', // Amber date stamp color
+    overlay: null,
+  },
+  // --- NANO BANANA TECH COLLECTION ---
+  {
+    id: 'banana-circuit',
+    name: 'Banana Circuit',
+    tags: ['tech', 'retro', 'green'],
+    containerStyle: {
+      backgroundColor: '#004d40', // PCB Green
+      backgroundImage: `
+        linear-gradient(rgba(255,215,0,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,215,0,0.1) 1px, transparent 1px)
+      `,
       backgroundSize: '20px 20px',
+      border: '4px solid #FFD700', // Gold border
       padding: '24px',
-      border: '4px solid #FFCDD2',
+      boxShadow: 'inset 0 0 20px rgba(0,0,0,0.5)',
     },
-    textColor: '#C62828',
-    overlay: null, // Will handle specific heart scattering in logic
-  },
-  {
-    id: 'starry-night',
-    name: 'Starry Date',
-    tags: ['couple', 'dark'],
-    containerStyle: {
-      backgroundColor: '#0D1B2A',
-      padding: '24px',
-      border: '2px solid #415A77',
-      boxShadow: '0 0 15px rgba(255,255,255,0.1)',
-    },
-    textColor: '#E0E1DD',
+    textColor: '#FFD700', // Gold text
+    footerText: 'NANO-PEEL TECH V.1',
     overlay: null,
   },
   {
-    id: 'bear-hug',
-    name: 'Cute Bear',
-    tags: ['cute', 'character'],
+    id: '8bit-banana',
+    name: '8-Bit Glitch',
+    tags: ['retro', 'pixel', 'game'],
     containerStyle: {
-      backgroundColor: '#F7E7CE', // Bear color
+      backgroundColor: '#222',
+      border: '4px dashed #FF00FF', // Neon pink dashed
       padding: '24px',
-      borderRadius: '20px',
-      border: '6px solid #5D4037',
+      fontFamily: '"Press Start 2P", cursive', // Pixel font fallback
     },
-    textColor: '#5D4037',
+    textColor: '#00FF00', // Neon Green
+    footerText: 'INSERT COIN: BANANA_GLITCH',
     overlay: null,
   },
   {
-    id: 'comic-pop',
-    name: 'Comic Pop',
-    tags: ['fun', 'colorful'],
+    id: 'cyber-monkey',
+    name: 'Cyber Mech',
+    tags: ['futuristic', 'cute', 'robot'],
     containerStyle: {
-      backgroundColor: '#FFF',
-      padding: '20px',
-      border: '4px solid black',
-      boxShadow: '8px 8px 0px #FFEB3B',
+      backgroundColor: '#ECEFF1',
+      border: '8px solid #607D8B', // Mechanical grey
+      padding: '24px',
+      borderRadius: '4px',
+      boxShadow: '0 0 0 4px #FFD700', // Yellow pipes
     },
-    textColor: '#000',
+    textColor: '#455A64',
+    footerText: 'MECHA-NANA SQUAD',
+    overlay: null,
+  },
+  {
+    id: 'neon-tropical',
+    name: 'Neon Tropical',
+    tags: ['vaporwave', 'neon', 'vibrant'],
+    containerStyle: {
+      background: 'linear-gradient(135deg, #0D001A, #300030)', // Deep purple bg
+      border: '2px solid #00FFFF', // Cyan border
+      padding: '24px',
+      boxShadow: '0 0 15px #FF00FF, inset 0 0 20px #FF00FF',
+    },
+    textColor: '#00FFFF', // Cyan text
+    footerText: 'TROPICAL CYBER-FRUIT',
+    overlay: null,
+  },
+  {
+    id: 'banana-space',
+    name: 'Space Odyssey',
+    tags: ['space', 'cute', 'scifi'],
+    containerStyle: {
+      backgroundColor: '#0B0B2A', // Deep space blue
+      backgroundImage: 'radial-gradient(white 1px, transparent 1px)',
+      backgroundSize: '50px 50px',
+      border: '2px solid rgba(255,255,255,0.2)',
+      padding: '24px',
+    },
+    textColor: '#E0CDFF', // Soft lavender
+    footerText: 'GALACTIC POTASSIUM',
+    overlay: null,
+  },
+  {
+    id: 'gameboy-peel',
+    name: 'Transparent Peel',
+    tags: ['retro', 'gadget', '90s'],
+    containerStyle: {
+      backgroundColor: 'rgba(255, 235, 59, 1)', // Clear Yellow Gameboy
+      border: '8px solid rgba(255, 255, 255, 0.4)', // Frosted edge
+      borderRadius: '16px 16px 40px 16px', // Asymmetric gameboy corner
+      padding: '24px',
+    },
+    textColor: '#3E2723', // Dark brown LCD text
+    footerText: 'PLAY IT LOUD! NANO-BOY',
     overlay: null,
   },
 ];

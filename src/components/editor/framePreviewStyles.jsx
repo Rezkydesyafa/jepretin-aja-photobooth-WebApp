@@ -6,151 +6,90 @@ export const getFramePreviewStyle = (frame) => {
     background:
       frame.containerStyle.background || frame.containerStyle.backgroundColor,
     backgroundImage: frame.containerStyle.backgroundImage,
-    backgroundSize: 'cover',
+    backgroundSize: frame.containerStyle.backgroundSize || 'cover',
     backgroundPosition: 'center',
+    border: frame.containerStyle.border,
+    boxShadow: frame.containerStyle.boxShadow,
+    borderRadius: frame.containerStyle.borderRadius,
   };
 
-  // 2. Specific Visual Overrides for "Empty" or "Complex" frames
+  // 2. Specific Visual Overrides for Previews
+  // Scale down patterns for the small preview box
   let innerElement = null;
 
   switch (frame.id) {
-    case 'thin-black':
-      previewStyle.border = '1px solid black';
+    case 'retro-groovy':
+      previewStyle.backgroundSize = '100% 100%';
       break;
-    case 'matte-black':
-      previewStyle.backgroundColor = '#111';
+
+    case 'pop-art':
+      previewStyle.backgroundSize = '4px 4px';
+      previewStyle.boxShadow = '3px 3px 0px #FF4081';
       break;
-    case 'clean-white':
-      previewStyle.backgroundColor = '#ffffff';
-      previewStyle.border = '1px solid #e5e5e5';
-      previewStyle.boxShadow = 'inset 0 0 0 2px #f9f9f9';
-      break;
-    case 'polaroid':
-      previewStyle.backgroundColor = '#fff';
-      previewStyle.border = '1px solid #e0e0e0';
-      previewStyle.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-      previewStyle.display = 'flex';
-      previewStyle.alignItems = 'flex-end';
-      previewStyle.justifyContent = 'center';
-      previewStyle.paddingBottom = '6px';
-      innerElement = (
-        <div className='w-6 h-6 bg-gray-100 border border-gray-200' />
-      );
-      break;
-    case 'double-line':
-      previewStyle.backgroundColor = '#fff';
-      previewStyle.border = '3px double black';
-      break;
-    case 'dotted':
-      previewStyle.backgroundColor = '#fff';
-      previewStyle.border = '2px dotted #999';
-      break;
-    case 'film-strip':
-      previewStyle.backgroundColor = '#111';
-      previewStyle.borderLeft = '3px dashed rgba(255,255,255,0.6)';
-      previewStyle.borderRight = '3px dashed rgba(255,255,255,0.6)';
-      previewStyle.boxSizing = 'border-box';
-      break;
-    case 'brackets':
-      previewStyle.backgroundColor = '#fff';
-      previewStyle.border = '1px solid #eee';
-      innerElement = (
-        <div className='text-[10px] font-bold text-black opacity-50'>|</div>
-      );
-      break;
-    case 'comic-pop':
-      previewStyle.backgroundColor = '#fff';
-      previewStyle.border = '2px solid black';
-      previewStyle.boxShadow = '3px 3px 0px #FFEB3B';
-      innerElement = (
-        <div className='w-full h-full opacity-20 bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:4px_4px]' />
-      );
-      break;
-    case 'geometric':
-      previewStyle.backgroundColor = '#fff';
-      innerElement = (
-        <svg viewBox='0 0 40 40' className='w-full h-full opacity-80'>
-          <polygon points='0,0 20,0 0,20' fill='black' />
-          <polygon points='40,40 20,40 40,20' fill='black' />
-        </svg>
-      );
-      break;
-    case 'marble':
-      previewStyle.background = '#FAFAFA';
-      previewStyle.backgroundImage =
-        'url("https://www.transparenttextures.com/patterns/white-diamond.png")';
-      innerElement = (
-        <div className='w-full h-full opacity-10 bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:2px_2px]' />
-      );
-      previewStyle.border = '1px solid #eee';
-      break;
-    case 'silver-gradient':
-      previewStyle.background =
-        'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)';
-      previewStyle.border = '1px solid #ccc';
-      break;
-    case 'metallic':
-      previewStyle.background =
-        'repeating-linear-gradient(45deg, #e0e0e0, #e0e0e0 2px, #f5f5f5 2px, #f5f5f5 4px)';
-      previewStyle.border = '1px solid #999';
-      break;
-    case 'pastel-pink':
-      previewStyle.border = '3px solid white';
-      previewStyle.outline = '1px solid #FFB7C5';
-      break;
-    case 'pastel-mint':
-      previewStyle.border = '3px solid white';
-      previewStyle.outline = '1px solid #A3E4D7';
-      break;
-    case 'pastel-lavender':
-      previewStyle.border = '2px solid white';
-      previewStyle.outline = '2px dashed #CE93D8';
-      previewStyle.outlineOffset = '-2px';
-      break;
-    case 'cute-grid':
-      previewStyle.background =
-        'linear-gradient(#E1F5FE 2px, transparent 2px), linear-gradient(90deg, #E1F5FE 2px, transparent 2px)';
-      previewStyle.backgroundSize = '8px 8px';
-      previewStyle.border = '1px solid #E1F5FE';
-      break;
-    case 'polka-dots':
-      previewStyle.backgroundColor = '#FFF8E1';
-      previewStyle.backgroundImage =
-        'radial-gradient(#FFD54F 30%, transparent 30%)';
-      previewStyle.backgroundSize = '8px 8px';
-      break;
-    case 'checkerboard':
-      previewStyle.backgroundColor = '#FFE0E0';
-      previewStyle.backgroundImage =
-        'conic-gradient(#FFCDD2 90deg, transparent 90deg 180deg, #FFCDD2 180deg 270deg, transparent 270deg)';
-      previewStyle.backgroundSize = '12px 12px';
-      break;
-    case 'love-hearts':
-      previewStyle.backgroundColor = '#FFEBEE';
-      previewStyle.border = '2px solid #FFCDD2';
-      break;
-    case 'starry-night':
-      previewStyle.boxShadow = '0 0 5px rgba(0,0,0,0.5)';
-      break;
-    case 'bear-hug':
-      previewStyle.backgroundColor = '#F7E7CE';
-      previewStyle.border = '2px solid #5D4037';
+
+    case 'coquette':
+      previewStyle.boxShadow = 'inset 0 0 0 2px #FFF, inset 0 0 0 3px #FFC1CC';
       innerElement = (
         <>
-          <div className='absolute -top-1 -left-1 w-3 h-3 bg-[#5D4037] rounded-full' />
-          <div className='absolute -top-1 -right-1 w-3 h-3 bg-[#5D4037] rounded-full' />
+          <div className='absolute top-1 left-1 text-[8px]'>🎀</div>
+          <div className='absolute top-1 right-1 text-[8px]'>🎀</div>
+          <div className='absolute bottom-1 left-1 text-[8px]'>🎀</div>
+          <div className='absolute bottom-1 right-1 text-[8px]'>🎀</div>
         </>
       );
       break;
+
+    case 'y2k':
+      previewStyle.backgroundSize = '10px 10px';
+      previewStyle.boxShadow = '0 0 4px #00FF00';
+      break;
+
+    case 'polco':
+      previewStyle.padding = '4px';
+      previewStyle.border = '1px solid #ddd';
+      innerElement = (
+        <div className='w-full h-full bg-white border border-gray-100 flex items-center justify-center'>
+          <div className='w-2/3 h-2/3 bg-gray-50'></div>
+        </div>
+      );
+      break;
+
+    case 'analog-film':
+      previewStyle.borderLeft = '4px dashed rgba(255,255,255,0.3)';
+      previewStyle.borderRight = '4px dashed rgba(255,255,255,0.3)';
+      break;
+
+    // --- NANO BANANA TECH FRAMES ---
+
+    case 'banana-circuit':
+      previewStyle.backgroundSize = '6px 6px';
+      previewStyle.border = '2px solid #FFD700';
+      break;
+
+    case '8bit-banana':
+      previewStyle.border = '2px dashed #FF00FF';
+      break;
+
+    case 'cyber-monkey':
+      previewStyle.border = '4px solid #607D8B';
+      previewStyle.boxShadow = '0 0 0 2px #FFD700';
+      break;
+
+    case 'neon-tropical':
+      previewStyle.border = '1px solid #00FFFF';
+      previewStyle.boxShadow = '0 0 5px #FF00FF';
+      break;
+
+    case 'banana-space':
+      previewStyle.backgroundSize = '15px 15px';
+      break;
+
+    case 'gameboy-peel':
+      previewStyle.borderRadius = '4px 4px 12px 4px';
+      previewStyle.border = '4px solid rgba(255,255,255,0.4)';
+      break;
+
     default:
-      // Fallback for any generic white frames to ensure visibility
-      if (
-        previewStyle.background === '#FFFFFF' ||
-        previewStyle.background === '#FFF' ||
-        previewStyle.backgroundColor === '#FFFFFF'
-      ) {
-        previewStyle.border = '1px solid #eaeaea';
-      }
       break;
   }
 

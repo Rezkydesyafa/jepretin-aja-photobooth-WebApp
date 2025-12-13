@@ -27,7 +27,7 @@ const CustomizationPanel = ({
   onDownload,
   onRetake,
   onPrint,
-  onShare,
+  onSave,
   language,
   onToggleLanguage,
 }) => {
@@ -132,7 +132,7 @@ const CustomizationPanel = ({
         onDownload={onDownload}
         onRetake={onRetake}
         onPrint={onPrint}
-        onShare={onShare}
+        onSave={onSave}
       />
     </div>
   );

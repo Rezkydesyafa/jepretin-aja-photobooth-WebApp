@@ -1,17 +1,11 @@
 import React from 'react';
-import { Download, RefreshCw, Printer, Share2 } from 'lucide-react';
+import { Download, RefreshCw, Printer, Save } from 'lucide-react';
 
-const ActionButtons = ({
-  isSaving,
-  onDownload,
-  onRetake,
-  onPrint,
-  onShare,
-}) => {
+const ActionButtons = ({ isSaving, onDownload, onRetake, onPrint, onSave }) => {
   const secondaryActions = [
     { icon: RefreshCw, label: 'Retake', action: onRetake },
     { icon: Printer, label: 'Print', action: onPrint },
-    { icon: Share2, label: 'Share', action: onShare },
+    { icon: Save, label: 'Save', action: onSave },
   ];
 
   return (

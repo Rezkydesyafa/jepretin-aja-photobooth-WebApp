@@ -10,13 +10,13 @@ const Editor = ({ capturedImage, onRetake, onSave }) => {
   // Prepare photos array
   const sourcePhotos = Array.isArray(capturedImage)
     ? capturedImage
-    : [capturedImage, capturedImage, capturedImage, capturedImage];
+    : [capturedImage, capturedImage, capturedImage];
   const photos =
-    sourcePhotos.length === 4
+    sourcePhotos.length === 3
       ? sourcePhotos
-      : [...sourcePhotos, ...Array(4 - sourcePhotos.length).fill(null)].slice(
+      : [...sourcePhotos, ...Array(3 - sourcePhotos.length).fill(null)].slice(
           0,
-          4
+          3
         );
 
   // State management
@@ -173,7 +173,7 @@ const Editor = ({ capturedImage, onRetake, onSave }) => {
         onDownload={handleDownloadClick}
         onRetake={onRetake}
         onPrint={handlePrintClick}
-        onShare={handleShareClick}
+        onSave={handleSaveClick}
         language={language}
         onToggleLanguage={toggleLanguage}
       />

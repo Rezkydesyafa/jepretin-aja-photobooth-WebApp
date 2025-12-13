@@ -116,11 +116,13 @@ export const usePhotoStripCanvas = () => {
     const ctx = canvas.getContext('2d');
 
     // Optimized resolution (2x scale for quality + smaller file size)
+    // Optimized resolution (2x scale for quality + smaller file size)
     const SCALE = 2;
     const BASE_WIDTH = 600;
-    const BASE_HEIGHT = 1900; // Increased from 1800 to prevent bottom cropping
+    // Adjusted height for 3 photos (approx calculation: header + 3*photo + gaps + footer)
+    const BASE_HEIGHT = 1500;
     const WIDTH = BASE_WIDTH * SCALE; // 1200px
-    const HEIGHT = BASE_HEIGHT * SCALE; // 3800px (increased for bottom padding)
+    const HEIGHT = BASE_HEIGHT * SCALE; // 3000px
 
     // Increased padding to prevent frame cropping
     const BASE_PADDING = 50; // Increased from 40
