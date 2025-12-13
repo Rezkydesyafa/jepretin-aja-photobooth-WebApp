@@ -39,10 +39,11 @@ const Editor = ({ capturedImage, onRetake, onSave }) => {
   const stripRef = useRef(null);
 
   // Sticker Logic
-  const addSticker = (StickerIcon) => {
+  const addSticker = (stickerDef) => {
     const newSticker = {
       id: Date.now(),
-      icon: StickerIcon,
+      type: stickerDef.type || 'icon',
+      content: stickerDef.type === 'image' ? stickerDef.src : stickerDef.icon,
       x: 50,
       y: 50,
       scale: 1,
@@ -331,7 +332,23 @@ const Editor = ({ capturedImage, onRetake, onSave }) => {
     ctx.textAlign = 'center';
     ctx.globalAlpha = 0.9;
     ctx.fillStyle = selectedFrame.textColor || '#000000';
-    ctx.fillText('sparkle.memories', WIDTH / 2, currentY + 60);
+    ctx.fillText('Jepretin.', WIDTH / 2, currentY + 60);
+    ctx.globalAlpha = 1.0;
+
+    // Sticker Rendering on Canvas
+    for (const sticker of stickers) {
+      if (sticker.type === 'image') {
+        const img = await loadImg(sticker.content);
+        if (img) {
+          const x = (sticker.x / 100) * WIDTH;
+          const y = (sticker.y / 100) * HEIGHT; // Position logic matches DOM percentage
+          // Assume generic size for stickers on canvas approx 120px (matches DOM 48px relative to viewport?)
+          // DOM uses w-24 (96px). Let's use 150px as base size on high-res canvas (600px width).
+          const size = 150 * sticker.scale;
+          ctx.drawImage(img, x - size / 2, y - size / 2, size, size);
+        }
+      }
+    }
     ctx.globalAlpha = 1.0;
 
     return canvas.toDataURL('image/png');
@@ -464,7 +481,7 @@ const Editor = ({ capturedImage, onRetake, onSave }) => {
                 style={{ color: selectedFrame.textColor || 'inherit' }}
               >
                 <h3 className='font-handwriting text-3xl font-normal opacity-90'>
-                  sparkle.memories
+                  Jepretin.
                 </h3>
               </div>
 
@@ -475,11 +492,19 @@ const Editor = ({ capturedImage, onRetake, onSave }) => {
                     key={sticker.id}
                     drag
                     dragMomentum={false}
-                    className='absolute cursor-move pointer-events-auto text-black/90 hover:text-black hover:drop-shadow-lg transition-all'
+                    className='absolute cursor-move pointer-events-auto text-black/90 hover:text-black hover:drop-shadow-lg transition-all select-none'
                     style={{ left: `${sticker.x}%`, top: `${sticker.y}%` }}
                     whileHover={{ scale: 1.1 }}
                   >
-                    <sticker.icon size={48} strokeWidth={1.5} />
+                    {sticker.type === 'image' ? (
+                      <img
+                        src={sticker.content}
+                        alt='sticker'
+                        className='w-24 h-24 object-contain drop-shadow-md pointer-events-none'
+                      />
+                    ) : (
+                      <sticker.content size={48} strokeWidth={1.5} />
+                    )}
                     <button
                       onClick={() => removeSticker(sticker.id)}
                       className='absolute -top-3 -right-3 bg-red-500 text-white rounded-full p-1.5 opacity-0 hover:opacity-100 transition-opacity shadow-sm'
@@ -865,10 +890,18 @@ const Editor = ({ capturedImage, onRetake, onSave }) => {
                   {STICKERS.map((sticker) => (
                     <button
                       key={sticker.id}
-                      onClick={() => addSticker(sticker.icon)}
-                      className='aspect-square bg-gray-50 hover:bg-black hover:text-white rounded-xl flex items-center justify-center text-gray-800 transition-all active:scale-95'
+                      onClick={() => addSticker(sticker)}
+                      className='aspect-square bg-gray-50 hover:bg-black hover:text-white rounded-xl flex items-center justify-center text-gray-800 transition-all active:scale-95 overflow-hidden'
                     >
-                      <sticker.icon size={24} strokeWidth={1.5} />
+                      {sticker.type === 'image' ? (
+                        <img
+                          src={sticker.src}
+                          alt={sticker.label}
+                          className='w-full h-full object-cover'
+                        />
+                      ) : (
+                        <sticker.icon size={24} strokeWidth={1.5} />
+                      )}
                     </button>
                   ))}
                 </div>
