@@ -29,7 +29,7 @@ const PhotoStrip = React.forwardRef(
 
     return (
       <div className='relative z-10 h-full flex items-center justify-center w-full'>
-        <div className='relative shadow-2xl transition-all duration-500 transform max-h-full overflow-y-auto scrollbar-hide rounded-sm hover:-translate-y-1 hover:shadow-3xl lg:scale-90 xl:scale-100 bg-white'>
+        <div className='relative shadow-2xl transition-all duration-500 transform max-h-full overflow-y-auto scrollbar-hide rounded-sm hover:-translate-y-1 hover:shadow-3xl scale-[0.7] sm:scale-90 lg:scale-90 xl:scale-100 bg-white'>
           <div
             ref={ref}
             className='w-[300px] flex flex-col gap-6 relative transition-all duration-500'

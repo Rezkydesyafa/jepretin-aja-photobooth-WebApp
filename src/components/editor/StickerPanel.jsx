@@ -12,7 +12,7 @@ const StickerPanel = ({ onAddSticker }) => {
       exit={{ opacity: 0, x: -20 }}
       className='space-y-6'
     >
-      <div className='grid grid-cols-4 gap-3'>
+      <div className='grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-4 gap-3'>
         {STICKERS.map((sticker) => (
           <button
             key={sticker.id}

@@ -34,14 +34,14 @@ const CustomizationPanel = ({
   const [activeTab, setActiveTab] = useState('frames');
 
   return (
-    <div className='w-full lg:w-[480px] bg-white border-l border-gray-100 shadow-xl lg:shadow-none flex flex-col z-30 h-[50vh] lg:h-full lg:min-h-screen relative'>
+    <div className='w-full lg:w-[480px] bg-white border-l border-gray-100 shadow-xl lg:shadow-none flex flex-col z-30 h-[55vh] md:h-[50vh] lg:h-full lg:min-h-screen relative'>
       {/* Header */}
-      <div className='px-8 py-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-10'>
+      <div className='px-6 py-4 lg:px-8 lg:py-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-10'>
         <div>
-          <h2 className='text-xl font-bold tracking-tight text-black'>
+          <h2 className='text-lg lg:text-xl font-bold tracking-tight text-black'>
             Customize
           </h2>
-          <p className='text-xs text-gray-400 tracking-widest uppercase mt-1'>
+          <p className='text-[10px] lg:text-xs text-gray-400 tracking-widest uppercase mt-1'>
             Design your legacy
           </p>
         </div>
@@ -55,13 +55,13 @@ const CustomizationPanel = ({
       </div>
 
       {/* Navigation Tabs */}
-      <div className='flex px-8 pt-6 pb-2 gap-6 overflow-x-auto no-scrollbar border-b border-transparent'>
+      <div className='flex px-6 pt-4 lg:px-8 lg:pt-6 pb-2 gap-6 overflow-x-auto no-scrollbar border-b border-transparent'>
         {TABS.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`
-              relative pb-3 text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-2
+              relative pb-3 text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-2 whitespace-nowrap
               ${
                 activeTab === tab.id
                   ? 'text-black'
@@ -85,7 +85,7 @@ const CustomizationPanel = ({
       </div>
 
       {/* Controls Area */}
-      <div className='flex-grow overflow-y-auto p-8 scrollbar-hide bg-white space-y-8'>
+      <div className='flex-grow overflow-y-auto p-6 lg:p-8 scrollbar-hide bg-white space-y-8'>
         <AnimatePresence mode='wait'>
           {activeTab === 'frames' && (
             <div className='space-y-10'>

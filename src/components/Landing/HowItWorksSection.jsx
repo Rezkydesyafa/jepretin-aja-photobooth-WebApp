@@ -49,7 +49,7 @@ const HowItWorksSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className='text-5xl md:text-6xl font-medium tracking-tighter leading-[1.1] mb-6'>
+            <h2 className='text-4xl md:text-6xl font-medium tracking-tighter leading-[1.1] mb-6'>
               Simple.
               <br />
               Fast.
@@ -90,9 +90,9 @@ const HowItWorksSection = () => {
                 whileHover={{ scale: 1.02, x: 10 }}
                 className='group'
               >
-                <div className='flex items-start gap-8 p-8 rounded-3xl bg-white border border-gray-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] hover:border-black/5 transition-all duration-300 relative overflow-hidden'>
+                <div className='flex items-start gap-8 p-6 md:p-8 rounded-3xl bg-white border border-gray-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] hover:border-black/5 transition-all duration-300 relative overflow-hidden'>
                   {/* Interactive Number Background */}
-                  <span className='absolute -right-4 -bottom-8 text-[8rem] font-bold text-gray-50 group-hover:text-gray-100 transition-colors duration-500 select-none z-0'>
+                  <span className='hidden sm:block absolute -right-4 -bottom-8 text-[8rem] font-bold text-gray-50 group-hover:text-gray-100 transition-colors duration-500 select-none z-0'>
                     0{idx + 1}
                   </span>
 

@@ -33,13 +33,13 @@ const FeaturesSection = () => {
               Premium Features
             </span>
           </div>
-          <h2 className='text-4xl md:text-5xl font-medium tracking-tight text-black mb-6'>
+          <h2 className='text-3xl md:text-5xl font-medium tracking-tight text-black mb-6'>
             Designed for{' '}
             <span className='font-serif italic text-gray-500'>
               Memorability
             </span>
           </h2>
-          <p className='text-gray-500 max-w-2xl mx-auto text-lg font-light leading-relaxed'>
+          <p className='text-gray-500 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed px-4'>
             We stripped away the clutter to focus on what matters most:{' '}
             <br className='hidden md:block' /> high-quality captures, privacy,
             and speed.
@@ -54,7 +54,7 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='md:col-span-2 p-10 rounded-[2.5rem] bg-gray-50 border border-gray-100 hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group'
+            className='md:col-span-2 p-6 md:p-10 rounded-[2.5rem] bg-gray-50 border border-gray-100 hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group'
           >
             <div className='relative z-10 flex flex-col h-full justify-between gap-8'>
               <div className='w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-black'>
@@ -81,7 +81,7 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className='p-10 rounded-[2.5rem] bg-[#111] text-white hover:shadow-2xl hover:shadow-black/20 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group'
+            className='p-6 md:p-10 rounded-[2.5rem] bg-[#111] text-white hover:shadow-2xl hover:shadow-black/20 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group'
           >
             <div className='relative z-10 flex flex-col h-full justify-between gap-8'>
               <div className='w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center'>
@@ -104,7 +104,7 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className='md:col-span-3 p-10 rounded-[2.5rem] bg-gradient-to-r from-gray-50 to-white border border-gray-100 hover:shadow-2xl hover:shadow-purple-500/5 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group'
+            className='md:col-span-3 p-6 md:p-10 rounded-[2.5rem] bg-gradient-to-r from-gray-50 to-white border border-gray-100 hover:shadow-2xl hover:shadow-purple-500/5 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden group'
           >
             <div className='relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8'>
               <div className='space-y-4 max-w-xl'>

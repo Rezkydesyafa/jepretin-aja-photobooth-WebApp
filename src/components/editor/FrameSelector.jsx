@@ -16,7 +16,7 @@ const FrameSelector = ({ selectedFrame, onFrameChange }) => {
       <section>
         <div className='mb-4'>
           <h3 className='text-sm font-bold text-black mb-4'>Frame Color</h3>
-          <div className='flex flex-wrap gap-3'>
+          <div className='flex flex-wrap gap-4 justify-center sm:justify-start'>
             {FRAMES.map((frame) => {
               const { previewStyle, innerElement } =
                 getFramePreviewStyle(frame);
@@ -27,7 +27,7 @@ const FrameSelector = ({ selectedFrame, onFrameChange }) => {
                   onClick={() => onFrameChange(frame)}
                   title={frame.name}
                   className={`
-                    w-10 h-10 rounded-full transition-all duration-300 relative shadow-sm hover:shadow-md hover:scale-110 flex items-center justify-center overflow-hidden
+                    w-12 h-12 rounded-full transition-all duration-300 relative shadow-sm hover:shadow-md hover:scale-110 flex items-center justify-center overflow-hidden
                     ${
                       selectedFrame.id === frame.id
                         ? 'ring-2 ring-offset-2 ring-black scale-110 z-10'

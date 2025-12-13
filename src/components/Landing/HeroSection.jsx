@@ -76,7 +76,7 @@ const HeroSection = ({ onStart }) => {
           </span>
         </div>
 
-        <h1 className='text-6xl md:text-8xl font-thin tracking-tighter text-black leading-[0.9]'>
+        <h1 className='text-5xl sm:text-7xl md:text-8xl font-thin tracking-tighter text-black leading-[0.9] text-center'>
           Jepretin{' '}
           <span className='font-bold relative inline-block'>
             Aja !
@@ -89,7 +89,7 @@ const HeroSection = ({ onStart }) => {
           </span>
         </h1>
 
-        <p className='text-lg md:text-xl text-gray-500 font-light max-w-xl mx-auto leading-relaxed tracking-wide'>
+        <p className='text-base sm:text-lg md:text-xl text-gray-500 font-light max-w-xl mx-auto leading-relaxed tracking-wide px-4'>
           The premium online photobooth experience. Create timeless memories
           with our curated minimal frames and seamless clean aesthetic.
         </p>

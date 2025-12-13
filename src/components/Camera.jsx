@@ -158,9 +158,9 @@ const Camera = ({ onCapture }) => {
           </div>
         </div>
 
-        <div className='flex flex-col lg:flex-row w-full gap-8 h-[65vh] lg:h-[70vh]'>
+        <div className='flex flex-col lg:flex-row w-full gap-4 md:gap-8 h-[55vh] md:h-[65vh] lg:h-[70vh]'>
           {/* LEFT: Camera Viewport */}
-          <div className='flex-1 relative bg-black rounded-[2.5rem] overflow-hidden shadow-2xl shadow-black/10 border-4 border-white ring-1 ring-black/5 group'>
+          <div className='flex-1 relative bg-black rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl shadow-black/10 border-4 border-white ring-1 ring-black/5 group'>
             {/* Video Feed */}
             <video
               ref={videoRef}
@@ -181,7 +181,7 @@ const Camera = ({ onCapture }) => {
                   key={countdown}
                   className='absolute inset-0 flex items-center justify-center z-20 bg-black/20 backdrop-blur-sm'
                 >
-                  <span className='text-[12rem] font-black text-white drop-shadow-lg tracking-tighter mix-blend-overlay'>
+                  <span className='text-[8rem] md:text-[12rem] font-black text-white drop-shadow-lg tracking-tighter mix-blend-overlay'>
                     {countdown}
                   </span>
                 </motion.div>
@@ -221,13 +221,13 @@ const Camera = ({ onCapture }) => {
 
           {/* RIGHT: Sidebar (Thumbnails & Actions) */}
           <div className='w-full lg:w-24 flex lg:flex-col justify-between gap-4'>
-            {/* Thumbnails */}
-            <div className='flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible no-scrollbar h-full justify-start lg:justify-center'>
+            {/* Thumbnails - Horizontal scroll on mobile, Vertical stack on desktop */}
+            <div className='flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible no-scrollbar w-full h-full justify-center'>
               {[0, 1, 2].map((idx) => (
                 <div
                   key={idx}
                   className={`
-                                    flex-shrink-0 w-24 lg:w-32 aspect-[4/3] rounded-2xl border flex items-center justify-center overflow-hidden relative transition-all duration-300
+                                    flex-shrink-0 w-[28%] md:w-24 lg:w-32 aspect-[4/3] rounded-xl md:rounded-2xl border flex items-center justify-center overflow-hidden relative transition-all duration-300
                                     ${
                                       photos[idx]
                                         ? 'border-transparent shadow-lg'

@@ -137,7 +137,7 @@ const Editor = ({ capturedImage, onRetake, onSave }) => {
   return (
     <div className='flex flex-col lg:flex-row w-full min-h-screen bg-gray-50 text-gray-900 font-sans overflow-hidden'>
       {/* LEFT COLUMN: PREVIEW AREA */}
-      <div className='flex-grow relative flex items-center justify-center p-8 lg:p-12 overflow-hidden bg-[#fafafa]'>
+      <div className='flex-grow relative flex items-center justify-center p-4 lg:p-12 overflow-hidden bg-[#fafafa]'>
         {/* Subtle Mesh Gradient Background */}
         <div className='absolute inset-0 pointer-events-none'>
           <div className='absolute top-0 left-0 w-full h-full bg-[linear-gradient(rgba(0,0,0,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.01)_1px,transparent_1px)] bg-[size:40px_40px]' />
